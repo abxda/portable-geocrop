@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" width="760" height="220" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="220" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">Field labels teach the model (purity filter)</text>
+<g transform="translate(60,54)">
+  <rect width="150" height="110" fill="#eab308" opacity=".5" stroke="#0f172a" stroke-width="2"/>
+  <g>
+    <circle cx="40" cy="40" r="7" fill="#eab308" stroke="#78350f" stroke-width="2"><animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="86" cy="66" r="7" fill="#eab308" stroke="#78350f" stroke-width="2"/>
+    <circle cx="112" cy="34" r="7" fill="#eab308" stroke="#78350f" stroke-width="2"/>
+  </g>
+  <text x="75" y="134" text-anchor="middle" font-size="10.5" fill="#16a34a" font-weight="700">✓ pure: all points agree → train</text>
+</g>
+<g transform="translate(420,54)">
+  <rect width="150" height="110" fill="#65a30d" opacity=".45" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="42" cy="44" r="7" fill="#65a30d" stroke="#365314" stroke-width="2"/>
+  <circle cx="96" cy="64" r="7" fill="#eab308" stroke="#78350f" stroke-width="2"><animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite"/></circle>
+  <line x1="8" y1="8" x2="142" y2="102" stroke="#e11d48" stroke-width="4" stroke-linecap="round" opacity=".9">
+    <animate attributeName="opacity" values="0;0;.9;.9" keyTimes="0;.4;.55;1" dur="3.5s" repeatCount="indefinite"/></line>
+  <text x="75" y="134" text-anchor="middle" font-size="10.5" fill="#e11d48" font-weight="700">✗ mixed → discarded</text>
+</g>
+<text x="20" y="204" font-size="12.5" fill="#475569">GPS points (wheat, corn, chickpea…) fall inside segments. Only segments where every point agrees on one class</text><text x="20" y="219" font-size="12.5" fill="#475569">are used for training.</text>
+</svg>

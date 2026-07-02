@@ -1,0 +1,6 @@
+dist/
+_contents/
+.jupyterlite.doit.db
+__pycache__/
+*.pyc
+.venv/

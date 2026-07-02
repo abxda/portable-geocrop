@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 245" width="760" height="245" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="245" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">Entrenamiento: variables + etiquetas → clasificador de cultivos</text>
+<g transform="translate(40,64)">
+  <rect width="130" height="60" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="65" y="26" text-anchor="middle" font-size="10.5" fill="#0f172a">features</text>
+  <text x="65" y="44" text-anchor="middle" font-size="9" font-family="Consolas,monospace" fill="#475569">ndvi… sar… dem…</text>
+</g>
+<g transform="translate(40,138)">
+  <rect width="130" height="46" rx="6" fill="#fef9c3" stroke="#eab308"/>
+  <text x="65" y="28" text-anchor="middle" font-size="10.5" fill="#713f12">labels 🌾🌽</text>
+</g>
+<path d="M 178 94 C 240 94 240 118 300 118 M 178 160 C 240 160 240 130 300 124" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arr8)"/>
+<defs><marker id="arr8" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0284c7"/></marker></defs>
+<g transform="translate(310,64)">
+  <rect width="180" height="110" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="90" y="24" text-anchor="middle" font-size="11.5" font-weight="700" fill="#16a34a">modelo</text>
+  <g transform="translate(348,92)" stroke="#16a34a" stroke-width="2" fill="none"><path d="M0,36 v-14 M0,22 l-12,-12 M0,22 l12,-12 M-12,10 l-6,-8 M-12,10 l4,-9 M12,10 l-4,-9 M12,10 l6,-8"/><animate attributeName="opacity" values=".3;1;1" keyTimes="0;.3;1" dur="3s" begin="0.0s" repeatCount="indefinite"/></g><g transform="translate(388,92)" stroke="#16a34a" stroke-width="2" fill="none"><path d="M0,36 v-14 M0,22 l-12,-12 M0,22 l12,-12 M-12,10 l-6,-8 M-12,10 l4,-9 M12,10 l-4,-9 M12,10 l6,-8"/><animate attributeName="opacity" values=".3;1;1" keyTimes="0;.3;1" dur="3s" begin="0.5s" repeatCount="indefinite"/></g><g transform="translate(428,92)" stroke="#16a34a" stroke-width="2" fill="none"><path d="M0,36 v-14 M0,22 l-12,-12 M0,22 l12,-12 M-12,10 l-6,-8 M-12,10 l4,-9 M12,10 l-4,-9 M12,10 l6,-8"/><animate attributeName="opacity" values=".3;1;1" keyTimes="0;.3;1" dur="3s" begin="1.0s" repeatCount="indefinite"/></g>
+</g>
+<path d="M 498 118 C 540 118 540 118 570 118" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arr8)"/>
+<g transform="translate(578,88)">
+  <rect width="70" height="60" rx="6" fill="#eab308" opacity=".25" stroke="#0f172a"/>
+  <text x="35" y="36" text-anchor="middle" font-size="20">🗺️</text>
+</g>
+<text x="380" y="204" text-anchor="middle" font-size="10.5" fill="#475569">navegador: Random Forest · pipeline completo: TPOT (AutoML)</text>
+<text x="20" y="228" font-size="12.5" fill="#475569">El modelo aprende qué historias espectrales corresponden a cada cultivo. En este taller un Random Forest</text><text x="20" y="243" font-size="12.5" fill="#475569">entrena en segundos, dentro de tu navegador.</text>
+</svg>

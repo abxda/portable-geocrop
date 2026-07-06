@@ -102,6 +102,67 @@ lo largo de la temporada que separa cultivos parecidos. Los meses × bandas ×
 """),
 
 md(
+"""## Two ways to download the images (free by default, GEE optional)
+
+You never provided a Google Earth Engine account in this course — and the
+production pipeline does not need one either. `geocrop_analysis_mx` has
+**two download backends**, chosen in the config file:
+
+- **`download_backend: "stac"` (default, free, no account).** Imagery is
+  pulled straight from open **STAC/COG** cloud catalogs and the geomedian is
+  computed locally. The optical provider is set by `hls_provider`:
+  - `"mpc"` — **Microsoft Planetary Computer**, anonymous, no token (the
+    default fallback; its HLS archive has gaps before ~2020).
+  - `"nasa"` — **NASA LPCLOUD**, the complete authoritative HLS archive;
+    needs a *free* NASA Earthdata token in `EARTHDATA_TOKEN` (Profile →
+    Generate Token at urs.earthdata.nasa.gov).
+  - `"earthsearch"` — **Element 84 / AWS** Sentinel-2, anonymous and the one
+    that works inside a browser (CORS-enabled).
+  - `"auto"` — earthsearch in WASM, else NASA if a token is set, else MPC.
+  Sentinel-1 radar always comes from Planetary Computer (anonymous).
+
+- **`download_backend: "gee"` (optional).** If you *do* have a Google Earth
+  Engine account, the compositing runs on Google's servers and you only
+  download the result — less local CPU, but it needs
+  `pip install earthengine-api` + `earthengine authenticate`. GEE is strictly
+  optional; nothing about it is imported unless you opt in.
+
+So the free path (NASA / Planetary Computer / AWS) is primary; GEE is a
+convenience for those who already have it. There is a step-by-step guide for
+the free tokens in the repo's `docs/manual_tokens_gratuitos.pdf`.
+""",
+"""## Dos formas de descargar las imágenes (gratis por defecto, GEE opcional)
+
+En todo este curso nunca diste una cuenta de Google Earth Engine — y el
+pipeline de producción tampoco la necesita. `geocrop_analysis_mx` tiene
+**dos backends de descarga**, elegidos en el archivo de configuración:
+
+- **`download_backend: "stac"` (por defecto, gratis, sin cuenta).** Las
+  imágenes se traen directo de catálogos abiertos en la nube **STAC/COG** y
+  la geomediana se calcula localmente. El proveedor óptico lo fija
+  `hls_provider`:
+  - `"mpc"` — **Microsoft Planetary Computer**, anónimo, sin token (el
+    respaldo por defecto; su archivo HLS tiene huecos antes de ~2020).
+  - `"nasa"` — **NASA LPCLOUD**, el archivo HLS completo y autoritativo;
+    necesita un token *gratuito* de NASA Earthdata en `EARTHDATA_TOKEN`
+    (Perfil → Generate Token en urs.earthdata.nasa.gov).
+  - `"earthsearch"` — **Element 84 / AWS** Sentinel-2, anónimo y el único que
+    funciona dentro de un navegador (habilitado para CORS).
+  - `"auto"` — earthsearch en WASM, si no NASA si hay token, si no MPC.
+  El radar Sentinel-1 siempre viene de Planetary Computer (anónimo).
+
+- **`download_backend: "gee"` (opcional).** Si *sí* tienes cuenta de Google
+  Earth Engine, la composición corre en los servidores de Google y solo
+  descargas el resultado — menos CPU local, pero requiere
+  `pip install earthengine-api` + `earthengine authenticate`. GEE es
+  estrictamente opcional; nada de él se importa a menos que lo actives.
+
+Así que la vía gratis (NASA / Planetary Computer / AWS) es la primaria; GEE
+es una comodidad para quien ya la tiene. Hay una guía paso a paso de los
+tokens gratuitos en `docs/manual_tokens_gratuitos.pdf` del repo.
+"""),
+
+md(
 """## What the browser cannot do — and why
 
 Being honest about limits is part of using the tool well. The browser

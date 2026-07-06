@@ -22,8 +22,12 @@ NO_PUSH="${1:-}"
 
 echo "==> [1/4] staging contents"
 rm -rf "$CONTENTS"; mkdir -p "$CONTENTS"
-cp "$ROOT/Crop_Classification_Workshop.ipynb" "$CONTENTS/"
-cp "$ROOT/Taller_Clasificacion_Cultivos.ipynb" "$CONTENTS/"
+# The linear course: 10 bilingual modules under notebooks/{en,es}/.
+# Their relative paths (../../anim, ../../files) resolve against _contents.
+cp -r "$ROOT/notebooks" "$CONTENTS/notebooks"
+# Keep the single-notebook workshop at the root for backward-compatible links.
+cp "$ROOT/Crop_Classification_Workshop.ipynb" "$CONTENTS/" 2>/dev/null || true
+cp "$ROOT/Taller_Clasificacion_Cultivos.ipynb" "$CONTENTS/" 2>/dev/null || true
 cp -r "$ROOT/anim" "$CONTENTS/anim"
 cp -r "$ROOT/files" "$CONTENTS/files"
 

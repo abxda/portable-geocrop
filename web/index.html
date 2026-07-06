@@ -109,17 +109,17 @@
     <span class="go" lang-en>Read the theory →</span>
     <span class="go" lang-es>Leer la teoría →</span>
   </a>
-  <a class="card" href="./lab/index.html?path=Crop_Classification_Workshop.ipynb" id="card-lab">
+  <a class="card" href="./lab/index.html?path=notebooks/en/00_welcome.ipynb" id="card-lab">
     <div class="ic">🧪</div>
     <div class="num" lang-en>Step 2</div><div class="num" lang-es>Paso 2</div>
-    <h2 lang-en>The hands-on lab</h2>
-    <h2 lang-es>El laboratorio práctico</h2>
-    <p lang-en>Open the notebook and classify real crops of the Yaqui Valley,
-       cell by cell, right here in your browser.</p>
-    <p lang-es>Abre el cuaderno y clasifica cultivos reales del Valle del Yaqui,
-       celda por celda, aquí mismo en tu navegador.</p>
-    <span class="go" lang-en>Launch the lab →</span>
-    <span class="go" lang-es>Abrir el laboratorio →</span>
+    <h2 lang-en>The hands-on course</h2>
+    <h2 lang-es>El curso práctico</h2>
+    <p lang-en>Ten linear modules, from zero: Python, satellites, indices,
+       segmentation and machine learning — running in your browser.</p>
+    <p lang-es>Diez módulos lineales, desde cero: Python, satélites, índices,
+       segmentación y aprendizaje automático — corriendo en tu navegador.</p>
+    <span class="go" lang-en>Start module 0 →</span>
+    <span class="go" lang-es>Empezar módulo 0 →</span>
   </a>
   <a class="card" href="https://github.com/abxda/geocrop_analysis_mx">
     <div class="ic">🚜</div>
@@ -133,6 +133,12 @@
     <span class="go" lang-en>Visit the repository →</span>
     <span class="go" lang-es>Visitar el repositorio →</span>
   </a>
+</div>
+
+<div style="margin-top:44px">
+  <div class="num" style="text-align:center" lang-en>The linear course · 10 modules</div>
+  <div class="num" style="text-align:center" lang-es>El curso lineal · 10 módulos</div>
+  <ol id="syllabus" style="max-width:720px;margin:16px auto 0;padding-left:22px;color:var(--dim);font-size:14.5px;line-height:1.9"></ol>
 </div>
 
 <footer>
@@ -150,6 +156,30 @@
 
 </div>
 <script>
+// The 10 modules: [en title, es title, en file, es file]
+var MODULES = [
+  ["Welcome: a real lab in your browser", "Bienvenida: un laboratorio real en tu navegador", "00_welcome.ipynb", "00_bienvenida.ipynb"],
+  ["Just enough Python", "El Python justo y necesario", "01_just_enough_python.ipynb", "01_python_justo.ipynb"],
+  ["How a satellite sees the world", "Cómo ve el mundo un satélite", "02_how_a_satellite_sees.ipynb", "02_como_ve_un_satelite.ipynb"],
+  ["Clean data: from clouds to the geomedian", "Datos limpios: de las nubes a la geomediana", "03_clean_data_geomedian.ipynb", "03_datos_limpios_geomediana.ipynb"],
+  ["Vegetation indices", "Índices de vegetación", "04_vegetation_indices.ipynb", "04_indices_de_vegetacion.ipynb"],
+  ["From pixels to parcels: segmentation", "De píxeles a parcelas: segmentación", "05_pixels_to_parcels.ipynb", "05_de_pixeles_a_parcelas.ipynb"],
+  ["Parcels become a table + the ground truth", "Las parcelas se vuelven tabla + la verdad de campo", "06_features_and_labels.ipynb", "06_variables_y_etiquetas.ipynb"],
+  ["Machine learning from zero", "Aprendizaje automático desde cero", "07_machine_learning_from_zero.ipynb", "07_machine_learning_desde_cero.ipynb"],
+  ["Capstone: the crop map, end to end", "Proyecto final: el mapa de cultivos", "08_capstone_crop_map.ipynb", "08_proyecto_mapa_de_cultivos.ipynb"],
+  ["From your browser to production", "De tu navegador a producción", "09_from_browser_to_production.ipynb", "09_del_navegador_a_produccion.ipynb"]
+];
+function renderSyllabus(l){
+  var ol = document.getElementById("syllabus");
+  ol.setAttribute("start", "0");
+  ol.style.listStyleType = "decimal";
+  ol.innerHTML = MODULES.map(function(m, i){
+    var file = l === "es" ? m[3] : m[2];
+    var title = l === "es" ? m[1] : m[0];
+    return '<li value="' + i + '"><a class="go" style="margin:0;font-weight:600" href="./lab/index.html?path=notebooks/'
+      + l + '/' + file + '">' + title + '</a></li>';
+  }).join("");
+}
 function setLang(l){
   document.documentElement.setAttribute("data-lang", l);
   document.documentElement.lang = l;
@@ -157,8 +187,9 @@ function setLang(l){
   document.getElementById("btn-en").classList.toggle("on", l === "en");
   document.getElementById("btn-es").classList.toggle("on", l === "es");
   var lab = document.getElementById("card-lab");
-  lab.href = "./lab/index.html?path=" + (l === "es" ?
-      "Taller_Clasificacion_Cultivos.ipynb" : "Crop_Classification_Workshop.ipynb");
+  lab.href = "./lab/index.html?path=notebooks/" + l + "/" + (l === "es" ?
+      "00_bienvenida.ipynb" : "00_welcome.ipynb");
+  renderSyllabus(l);
 }
 (function(){
   var saved = null;

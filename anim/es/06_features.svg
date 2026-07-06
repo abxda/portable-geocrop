@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 225" width="760" height="225" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="225" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">Cada parcela se convierte en una fila de variables</text>
+<g transform="translate(40,58)">
+  <rect width="180" height="120" fill="#f8fafc" stroke="#94a3b8"/>
+  <path d="M0,44 h84 M84,0 v44 M84,44 v76 M0,44 h180 M120,44 v76" stroke="#0f172a" stroke-width="2" fill="none"/>
+  <rect x="2" y="2" width="80" height="40" fill="#eab308" opacity=".6"/>
+  <rect x="88" y="2" width="90" height="40" fill="#65a30d" opacity=".6"/>
+  <rect x="2" y="48" width="80" height="70" fill="#86efac" opacity=".55"/>
+  <rect x="88" y="48" width="30" height="70" fill="#a8a29e" opacity=".6"/>
+  <rect x="122" y="48" width="56" height="70" fill="#eab308" opacity=".5"/>
+  <rect x="2" y="2" width="80" height="40" fill="none" stroke="#e11d48" stroke-width="2.5">
+    <animate attributeName="opacity" values="1;0;0;1" keyTimes="0;.25;.9;1" dur="4s" repeatCount="indefinite"/></rect>
+</g>
+<path d="M 240 118 C 280 118 280 90 322 84" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arr6)"/>
+<defs><marker id="arr6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0284c7"/></marker></defs>
+<rect x="330" y="46" width="300" height="20" rx="3" fill="#e2e8f0"/>
+<text x="342" y="60" font-size="10" font-weight="700" fill="#0f172a">id</text>
+<text x="420" y="60" font-size="10" font-weight="700" fill="#0f172a">media · desv · mín · máx por banda</text>
+<g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;.2;1" dur="4s" begin="0.0s" repeatCount="indefinite"/><rect x="330" y="72" width="300" height="20" rx="3" fill="#f1f5f9" stroke="#e2e8f0"/><text x="342" y="86" font-size="10" font-family="Consolas,monospace" fill="#0f172a">seg_101</text><text x="420" y="86" font-size="10" font-family="Consolas,monospace" fill="#475569">0.72 0.03 2100 …</text></g><g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;.2;1" dur="4s" begin="0.8s" repeatCount="indefinite"/><rect x="330" y="98" width="300" height="20" rx="3" fill="#f8fafc" stroke="#e2e8f0"/><text x="342" y="112" font-size="10" font-family="Consolas,monospace" fill="#0f172a">seg_102</text><text x="420" y="112" font-size="10" font-family="Consolas,monospace" fill="#475569">0.63 0.04 2110 …</text></g><g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;.2;1" dur="4s" begin="1.6s" repeatCount="indefinite"/><rect x="330" y="124" width="300" height="20" rx="3" fill="#f1f5f9" stroke="#e2e8f0"/><text x="342" y="138" font-size="10" font-family="Consolas,monospace" fill="#0f172a">seg_103</text><text x="420" y="138" font-size="10" font-family="Consolas,monospace" fill="#475569">0.54 0.05 2120 …</text></g><g opacity="0"><animate attributeName="opacity" values="0;1;1" keyTimes="0;.2;1" dur="4s" begin="2.4000000000000004s" repeatCount="indefinite"/><rect x="330" y="150" width="300" height="20" rx="3" fill="#f8fafc" stroke="#e2e8f0"/><text x="342" y="164" font-size="10" font-family="Consolas,monospace" fill="#0f172a">seg_104</text><text x="420" y="164" font-size="10" font-family="Consolas,monospace" fill="#475569">0.45 0.06 2130 …</text></g>
+<text x="20" y="208" font-size="12.5" fill="#475569">Las estadísticas zonales resumen cada banda y mes dentro de cada segmento — cientos de columnas que describen</text><text x="20" y="223" font-size="12.5" fill="#475569">la historia espectral de cada parcela.</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" width="760" height="210" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="210" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">El pipeline completo (geocrop_analysis_mx) — este taller en producción</text>
+<defs><marker id="arrA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0284c7"/></marker></defs>
+<g transform="translate(26,44)">
+  <rect width="230" height="34" rx="8" fill="#eff6ff" stroke="#0284c7"/>
+  <text x="115" y="21" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0284c7">STAC (default, sin cuenta)</text>
+</g>
+<g transform="translate(270,44)">
+  <rect width="180" height="34" rx="8" fill="#fefce8" stroke="#d97706" stroke-dasharray="5 4"/>
+  <text x="90" y="21" text-anchor="middle" font-size="10.5" fill="#d97706">GEE (opcional)</text>
+</g>
+<path d="M 140 78 v 14 M 360 78 C 360 90 200 84 150 92" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+<g transform="translate(26,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">📥</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">descarga</text>
+</g><path d="M 132 127 h 10" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrA)"/><g transform="translate(146,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">🧮</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">geomediana</text>
+</g><path d="M 252 127 h 10" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrA)"/><g transform="translate(266,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">🧩</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">segmenta</text>
+</g><path d="M 372 127 h 10" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrA)"/><g transform="translate(386,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">📊</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">variables</text>
+</g><path d="M 492 127 h 10" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrA)"/><g transform="translate(506,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">🤖</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">entrena</text>
+</g><path d="M 612 127 h 10" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrA)"/><g transform="translate(626,96)">
+  <rect width="104" height="62" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="52" y="28" text-anchor="middle" font-size="17">🗺️</text>
+  <text x="52" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">mapa</text>
+</g>
+<circle r="5" fill="#16a34a">
+  <animateMotion path="M 78 127 H 682" dur="5s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="1;1;0" keyTimes="0;.94;1" dur="5s" repeatCount="indefinite"/>
+</circle>
+<text x="20" y="190" font-size="12.5" fill="#475569">pip install, un archivo de configuración, y los mismos pasos que acabas de correr escalan a municipios</text><text x="20" y="205" font-size="12.5" fill="#475569">completos — meses de imágenes, radar incluido, y tus propios rasters (MDE, clima) como variables extra.</text>
+</svg>

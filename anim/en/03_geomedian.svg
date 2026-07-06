@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 222" width="760" height="222" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="222" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">One month of scenes → one clean geomedian</text>
+<g transform="translate(26,58)">
+  <rect width="72" height="72" rx="5" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="8" y="40" width="24" height="18" fill="#65a30d" opacity=".7"/>
+  <rect x="40" y="12" width="22" height="24" fill="#eab308" opacity=".7"/>
+  <rect x="10" y="10" width="20" height="20" fill="#a8a29e" opacity=".6"/>
+  <g opacity=".95"><ellipse cx="30" cy="26" rx="16" ry="9" fill="#cbd5e1">
+      <animate attributeName="cx" values="30;46;30" dur="3.0s" repeatCount="indefinite"/></ellipse></g>
+  <text x="36" y="86" text-anchor="middle" font-size="8.5" fill="#94a3b8">t1</text>
+</g><g transform="translate(114,58)">
+  <rect width="72" height="72" rx="5" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="8" y="40" width="24" height="18" fill="#65a30d" opacity=".7"/>
+  <rect x="40" y="12" width="22" height="24" fill="#eab308" opacity=".7"/>
+  <rect x="10" y="10" width="20" height="20" fill="#a8a29e" opacity=".6"/>
+  <g opacity=".95"><ellipse cx="53" cy="43" rx="16" ry="9" fill="#cbd5e1">
+      <animate attributeName="cx" values="53;69;53" dur="3.4s" repeatCount="indefinite"/></ellipse></g>
+  <text x="36" y="86" text-anchor="middle" font-size="8.5" fill="#94a3b8">t2</text>
+</g><g transform="translate(202,58)">
+  <rect width="72" height="72" rx="5" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="8" y="40" width="24" height="18" fill="#65a30d" opacity=".7"/>
+  <rect x="40" y="12" width="22" height="24" fill="#eab308" opacity=".7"/>
+  <rect x="10" y="10" width="20" height="20" fill="#a8a29e" opacity=".6"/>
+  
+  <text x="36" y="86" text-anchor="middle" font-size="8.5" fill="#94a3b8">t3</text>
+</g><g transform="translate(290,58)">
+  <rect width="72" height="72" rx="5" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="8" y="40" width="24" height="18" fill="#65a30d" opacity=".7"/>
+  <rect x="40" y="12" width="22" height="24" fill="#eab308" opacity=".7"/>
+  <rect x="10" y="10" width="20" height="20" fill="#a8a29e" opacity=".6"/>
+  <g opacity=".95"><ellipse cx="59" cy="51" rx="16" ry="9" fill="#cbd5e1">
+      <animate attributeName="cx" values="59;75;59" dur="4.2s" repeatCount="indefinite"/></ellipse></g>
+  <text x="36" y="86" text-anchor="middle" font-size="8.5" fill="#94a3b8">t4</text>
+</g><g transform="translate(378,58)">
+  <rect width="72" height="72" rx="5" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="8" y="40" width="24" height="18" fill="#65a30d" opacity=".7"/>
+  <rect x="40" y="12" width="22" height="24" fill="#eab308" opacity=".7"/>
+  <rect x="10" y="10" width="20" height="20" fill="#a8a29e" opacity=".6"/>
+  <g opacity=".95"><ellipse cx="42" cy="42" rx="16" ry="9" fill="#cbd5e1">
+      <animate attributeName="cx" values="42;58;42" dur="4.6s" repeatCount="indefinite"/></ellipse></g>
+  <text x="36" y="86" text-anchor="middle" font-size="8.5" fill="#94a3b8">t5</text>
+</g>
+<text x="250" y="160" font-size="11" fill="#475569">clouds, shadows, gaps…</text>
+<path d="M 480 94 C 520 94 520 94 552 94" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arr3)"/>
+<defs><marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0284c7"/></marker></defs>
+<g transform="translate(560,44)">
+  <rect width="100" height="100" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2">
+    <animate attributeName="stroke-width" values="2;3.5;2" dur="2.6s" repeatCount="indefinite"/></rect>
+  <rect x="11" y="55" width="33" height="25" fill="#65a30d"/>
+  <rect x="55" y="16" width="31" height="33" fill="#eab308"/>
+  <rect x="14" y="14" width="28" height="28" fill="#a8a29e" opacity=".8"/>
+  <text x="50" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">geomedian</text>
+  <text x="50" y="133" text-anchor="middle" font-size="9" fill="#475569">robust multi-band median</text>
+</g>
+<text x="20" y="196" font-size="12.5" fill="#475569">Every pass sees different clouds. The geometric median keeps, per pixel, the most typical spectral signature</text><text x="20" y="211" font-size="12.5" fill="#475569">of the month — clouds and shadows get voted out.</text>
+</svg>

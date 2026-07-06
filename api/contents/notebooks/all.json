@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.975048Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:55.984040Z",
+      "mimetype": null,
+      "name": "en",
+      "path": "notebooks/en",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.985047Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:55.994049Z",
+      "mimetype": null,
+      "name": "es",
+      "path": "notebooks/es",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    }
+  ],
+  "created": "2026-07-06T03:26:55.974048Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-07-06T03:26:55.985047Z",
+  "mimetype": null,
+  "name": "notebooks",
+  "path": "notebooks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

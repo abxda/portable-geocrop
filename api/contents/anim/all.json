@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.933470Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:55.943467Z",
+      "mimetype": null,
+      "name": "en",
+      "path": "anim/en",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.944471Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:55.960042Z",
+      "mimetype": null,
+      "name": "es",
+      "path": "anim/es",
+      "size": null,
+      "type": "directory",
+      "writable": true
+    }
+  ],
+  "created": "2026-07-06T03:26:55.933470Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-07-06T03:26:55.944471Z",
+  "mimetype": null,
+  "name": "anim",
+  "path": "anim",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

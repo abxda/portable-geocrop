@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" font-family="Segoe UI,system-ui,sans-serif">
+<rect width="760" height="250" fill="#ffffff"/>
+<text x="20" y="26" font-size="15" font-weight="700" fill="#0f172a">13 layers per pixel: bands + vegetation indices</text>
+<rect x="40" y="56" width="120" height="14" rx="2" fill="#3b82f6" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="47" y="67" width="120" height="14" rx="2" fill="#22c55e" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="54" y="78" width="120" height="14" rx="2" fill="#ef4444" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="61" y="89" width="120" height="14" rx="2" fill="#7c3aed" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="68" y="100" width="120" height="14" rx="2" fill="#b45309" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="75" y="111" width="120" height="14" rx="2" fill="#78350f" opacity=".75" stroke="#fff" stroke-width=".8"/><rect x="82" y="122" width="120" height="14" rx="2" fill="#16a34a" opacity="0.35" stroke="#fff" stroke-width=".8"/><rect x="89" y="133" width="120" height="14" rx="2" fill="#16a34a" opacity="0.41" stroke="#fff" stroke-width=".8"/><rect x="96" y="144" width="120" height="14" rx="2" fill="#16a34a" opacity="0.47" stroke="#fff" stroke-width=".8"/><rect x="103" y="155" width="120" height="14" rx="2" fill="#16a34a" opacity="0.53" stroke="#fff" stroke-width=".8"/><rect x="110" y="166" width="120" height="14" rx="2" fill="#16a34a" opacity="0.59" stroke="#fff" stroke-width=".8"/><rect x="117" y="177" width="120" height="14" rx="2" fill="#16a34a" opacity="0.65" stroke="#fff" stroke-width=".8"/><rect x="124" y="188" width="120" height="14" rx="2" fill="#16a34a" opacity="0.71" stroke="#fff" stroke-width=".8"/>
+<text x="100" y="48" text-anchor="middle" font-size="10" fill="#475569">6 spectral bands</text>
+<text x="148" y="220" text-anchor="middle" font-size="10" fill="#16a34a">7 indices (NDVI, EVI, …)</text>
+<g transform="translate(300,68)">
+  <text x="0" y="0" font-size="16" font-family="Consolas,monospace" fill="#0f172a">NDVI = <tspan fill="#7c3aed">(NIR</tspan> − <tspan fill="#ef4444">Red)</tspan> / <tspan fill="#7c3aed">(NIR</tspan> + <tspan fill="#ef4444">Red)</tspan></text>
+</g>
+<g transform="translate(320,100)">
+  <rect width="130" height="80" rx="6" fill="#16a34a">
+    <animate attributeName="fill" values="#16a34a;#4ade80;#16a34a" dur="3s" repeatCount="indefinite"/></rect>
+  <text x="65" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">NDVI 0.8</text>
+  <text x="65" y="98" text-anchor="middle" font-size="10" fill="#475569">vigorous crop</text>
+</g>
+<g transform="translate(490,100)">
+  <rect width="130" height="80" rx="6" fill="#d6c4a3"/>
+  <text x="65" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#6b5d43">NDVI 0.1</text>
+  <text x="65" y="98" text-anchor="middle" font-size="10" fill="#475569">bare soil</text>
+</g>
+<text x="20" y="232" font-size="12.5" fill="#475569">NDVI = (NIR − Red) / (NIR + Red). Healthy vegetation reflects near-infrared strongly — invisible to the eye,</text><text x="20" y="247" font-size="12.5" fill="#475569">obvious to the classifier.</text>
+</svg>

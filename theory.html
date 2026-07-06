@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Theory · Crop Classification Workshop</title>
+<style>
+  :root{--text:#1e293b;--dim:#64748b;--cy:#166534;--cy2:#16a34a;--line:#e2e8f0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.75}
+  .wrap{max-width:860px;margin:0 auto;padding:26px 22px 70px}
+  a{color:var(--cy2);text-decoration:none}
+  h1{font-size:31px;margin:18px 0 6px;
+     background:linear-gradient(90deg,#166534,#65a30d);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:22px;margin:46px 0 10px;color:#0f172a;border-bottom:2px solid var(--line);padding-bottom:6px}
+  p{margin:10px 0;color:#334155;font-size:15.5px}
+  .anim{margin:18px 0;text-align:center}
+  .anim img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px}
+  .tip{background:#f0fdf4;border-left:4px solid var(--cy2);padding:10px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:14.5px}
+  .toc{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:16px 22px;margin:20px 0}
+  .toc a{display:block;padding:3px 0;font-size:14.5px}
+  .top{font-size:13.5px}
+  .langbar{display:flex;justify-content:flex-end;margin:4px 0 0}
+  .langbar button{font:inherit;font-size:13px;font-weight:700;padding:6px 16px;cursor:pointer;
+        border:1px solid var(--line);background:#f8fafc;color:var(--dim)}
+  .langbar button:first-child{border-radius:999px 0 0 999px}
+  .langbar button:last-child{border-radius:0 999px 999px 0}
+  .langbar button.on{background:var(--cy2);border-color:var(--cy2);color:#fff}
+  [lang-es]{display:none}
+  html[data-lang="es"] [lang-en]{display:none}
+  html[data-lang="es"] [lang-es]{display:revert}
+  footer{text-align:center;color:var(--dim);font-size:12.5px;margin-top:56px}
+</style>
+</head>
+<body><div class="wrap">
+
+<div style="height:5px;border-radius:3px;background:linear-gradient(90deg,#166534 0 25%,#65a30d 25% 50%,#eab308 50% 75%,#d97706 75% 100%)"></div>
+<div class="langbar" role="group" aria-label="Language">
+  <button id="btn-en" onclick="setLang('en')">EN</button>
+  <button id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<p class="top"><a href="./index.html" lang-en>← Back to the workshop home</a>
+<a href="./index.html" lang-es>← Volver a la portada del taller</a></p>
+
+<h1 lang-en>How do you classify crops from space?</h1>
+<h1 lang-es>¿Cómo se clasifican cultivos desde el espacio?</h1>
+<p lang-en>The complete theory behind the hands-on lab — every concept illustrated,
+no prior GIS or remote-sensing experience assumed.</p>
+<p lang-es>Toda la teoría detrás del laboratorio práctico — cada concepto ilustrado,
+sin asumir experiencia previa en SIG ni percepción remota.</p>
+
+<div class="toc">
+  <span lang-en>
+    <a href="#s1">1. Python inside your browser</a>
+    <a href="#s2">2. Where the images come from — open catalogs and optional GEE</a>
+    <a href="#s3">3. The geomedian: one clean image per month</a>
+    <a href="#s4">4. Bands and vegetation indices</a>
+    <a href="#s5">5. Shepherd segmentation: parcels, not pixels</a>
+    <a href="#s6">6. Features: every parcel becomes a row</a>
+    <a href="#s7">7. Field labels and the purity filter</a>
+    <a href="#s8">8. Training the classifier</a>
+    <a href="#s9">9. The crop map</a>
+    <a href="#s10">10. From workshop to production</a>
+  </span>
+  <span lang-es>
+    <a href="#s1">1. Python dentro de tu navegador</a>
+    <a href="#s2">2. De dónde salen las imágenes — catálogos abiertos y GEE opcional</a>
+    <a href="#s3">3. La geomediana: una imagen limpia por mes</a>
+    <a href="#s4">4. Bandas e índices de vegetación</a>
+    <a href="#s5">5. Segmentación Shepherd: parcelas, no píxeles</a>
+    <a href="#s6">6. Variables: cada parcela se vuelve una fila</a>
+    <a href="#s7">7. Etiquetas de campo y el filtro de pureza</a>
+    <a href="#s8">8. Entrenamiento del clasificador</a>
+    <a href="#s9">9. El mapa de cultivos</a>
+    <a href="#s10">10. Del taller a producción</a>
+  </span>
+</div>
+
+<h2 id="s1" lang-en>1. Python inside your browser</h2>
+<h2 id="s1" lang-es>1. Python dentro de tu navegador</h2>
+<p lang-en>Everything in this workshop runs on <b>WebAssembly</b> (Pyodide): a full
+scientific Python — NumPy, SciPy, scikit-learn, rasterio, matplotlib — compiled to run
+inside the browser's sandbox. Your data never leaves your machine, there is no server
+to pay for or trust, and closing the tab removes everything.</p>
+<p lang-es>Todo en este taller corre sobre <b>WebAssembly</b> (Pyodide): un Python
+científico completo — NumPy, SciPy, scikit-learn, rasterio, matplotlib — compilado para
+ejecutarse dentro del sandbox del navegador. Tus datos nunca salen de tu máquina, no hay
+servidor que pagar ni en quien confiar, y al cerrar la pestaña todo desaparece.</p>
+<div class="anim"><img lang-en src="anim/en/01_where_it_runs.svg" alt="where it runs"/>
+<img lang-es src="anim/es/01_where_it_runs.svg" alt="dónde corre"/></div>
+
+<h2 id="s2" lang-en>2. Where the images come from — open catalogs and optional GEE</h2>
+<h2 id="s2" lang-es>2. De dónde salen las imágenes — catálogos abiertos y GEE opcional</h2>
+<p lang-en>Modern satellite archives live in the cloud as <b>Cloud-Optimized GeoTIFFs
+(COG)</b> indexed by <b>STAC</b> catalogs — a standard JSON language for asking
+"which scenes cover my area in March?". Three open catalogs power the crop pipeline:
+<b>NASA Earthdata</b> (HLS: Landsat and Sentinel-2 harmonized into one 30 m record),
+<b>Microsoft Planetary Computer</b> (Sentinel-1 radar, terrain-corrected), and
+<b>Earth Search/AWS</b> (Sentinel-2, the browser-friendly source this workshop's data
+route uses). The trick that makes them practical: COGs support <i>range reads</i>, so
+you download only the bytes covering your study area — never whole scenes.</p>
+<p lang-es>Los archivos satelitales modernos viven en la nube como <b>GeoTIFFs
+optimizados para nube (COG)</b> indexados por catálogos <b>STAC</b> — un lenguaje JSON
+estándar para preguntar "¿qué escenas cubren mi zona en marzo?". Tres catálogos abiertos
+alimentan el pipeline de cultivos: <b>NASA Earthdata</b> (HLS: Landsat y Sentinel-2
+armonizados en un registro único de 30 m), <b>Microsoft Planetary Computer</b> (radar
+Sentinel-1 corregido por terreno) y <b>Earth Search/AWS</b> (Sentinel-2, la fuente apta
+para navegador que usa la ruta de datos de este taller). El truco que los vuelve
+prácticos: los COG soportan <i>lecturas por rango</i>, así que solo descargas los bytes
+que cubren tu zona de estudio — nunca escenas completas.</p>
+<div class="anim"><img lang-en src="anim/en/02_data_sources.svg" alt="data sources"/>
+<img lang-es src="anim/es/02_data_sources.svg" alt="fuentes de datos"/></div>
+<div class="tip" lang-en><b>And Google Earth Engine?</b> It is supported — as an
+<i>option</i>. If you already have a GEE account, the production pipeline can compute
+the composites on Google's servers (<code>download_backend: "gee"</code>) and download
+only the results. But the default needs no account at all: GEE is a convenience switch,
+never a requirement.</div>
+<div class="tip" lang-es><b>¿Y Google Earth Engine?</b> Está soportado — como
+<i>opción</i>. Si ya tienes cuenta de GEE, el pipeline de producción puede calcular los
+compuestos en los servidores de Google (<code>download_backend: "gee"</code>) y
+descargar solo los resultados. Pero el modo por defecto no necesita ninguna cuenta:
+GEE es un interruptor de conveniencia, nunca un requisito.</div>
+
+<h2 id="s3" lang-en>3. The geomedian: one clean image per month</h2>
+<h2 id="s3" lang-es>3. La geomediana: una imagen limpia por mes</h2>
+<p lang-en>A single satellite pass is a lottery: clouds, haze, shadows. Instead of
+picking "the least bad scene", we combine <i>every</i> scene of the month with the
+<b>geometric median</b> — a robust multi-dimensional median that treats each pixel's
+13 bands as one vector and finds the most central spectral signature of the month.
+Clouds are outliers, so they get voted out; and because all bands are reduced
+<i>together</i>, band ratios like NDVI stay physically consistent (a plain per-band
+median would mix April's water content with July's chlorophyll).</p>
+<p lang-es>Una sola pasada del satélite es una lotería: nubes, bruma, sombras. En vez
+de elegir "la escena menos mala", combinamos <i>todas</i> las escenas del mes con la
+<b>mediana geométrica</b> — una mediana multidimensional robusta que trata las 13
+bandas de cada píxel como un solo vector y encuentra la firma espectral más central del
+mes. Las nubes son atípicos, así que quedan fuera por mayoría; y como todas las bandas
+se reducen <i>juntas</i>, los cocientes como el NDVI se mantienen físicamente
+consistentes (una mediana banda por banda mezclaría la humedad de abril con la clorofila
+de julio).</p>
+<div class="anim"><img lang-en src="anim/en/03_geomedian.svg" alt="geomedian"/>
+<img lang-es src="anim/es/03_geomedian.svg" alt="geomediana"/></div>
+
+<h2 id="s4" lang-en>4. Bands and vegetation indices</h2>
+<h2 id="s4" lang-es>4. Bandas e índices de vegetación</h2>
+<p lang-en>Sensors see far beyond the visible: near-infrared (NIR) and short-wave
+infrared (SWIR) are where vegetation, water and soil differ most. From 6 spectral bands
+we derive 7 classic indices — NDVI (vigor), EVI, GCVI (chlorophyll), MSAVI2, LSWI
+(water), NDSVI and NDTI (residue/tillage) — giving 13 layers per pixel that summarize
+the field's condition.</p>
+<p lang-es>Los sensores ven mucho más allá de lo visible: el infrarrojo cercano (NIR) y
+el de onda corta (SWIR) son donde más difieren vegetación, agua y suelo. De 6 bandas
+espectrales derivamos 7 índices clásicos — NDVI (vigor), EVI, GCVI (clorofila), MSAVI2,
+LSWI (agua), NDSVI y NDTI (residuos/labranza) — dando 13 capas por píxel que resumen la
+condición del campo.</p>
+<div class="anim"><img lang-en src="anim/en/04_bands_ndvi.svg" alt="bands"/>
+<img lang-es src="anim/es/04_bands_ndvi.svg" alt="bandas"/></div>
+
+<h2 id="s5" lang-en>5. Shepherd segmentation: parcels, not pixels</h2>
+<h2 id="s5" lang-es>5. Segmentación Shepherd: parcelas, no píxeles</h2>
+<p lang-en>Classifying pixel by pixel produces salt-and-pepper maps and ignores that
+agriculture happens in <i>fields</i>. The Shepherd algorithm (2019) first clusters
+pixels by spectral similarity (k-means), finds connected clumps, then iteratively
+merges the small ones into their most similar neighbour — leaving homogeneous segments
+that follow real parcel boundaries. This workshop uses
+<a href="https://github.com/abxda/shepherd-wasm">shepherd-wasm</a>, a pure NumPy/SciPy
+port that runs in the browser and is bit-exact against the reference implementation.</p>
+<p lang-es>Clasificar píxel por píxel produce mapas "sal y pimienta" e ignora que la
+agricultura ocurre en <i>parcelas</i>. El algoritmo Shepherd (2019) primero agrupa
+píxeles por similitud espectral (k-means), encuentra grumos conexos y luego fusiona
+iterativamente los pequeños con su vecino más parecido — dejando segmentos homogéneos
+que siguen los límites reales de las parcelas. Este taller usa
+<a href="https://github.com/abxda/shepherd-wasm">shepherd-wasm</a>, un port puro
+NumPy/SciPy que corre en el navegador y es bit-exacto contra la implementación de
+referencia.</p>
+<div class="anim"><img lang-en src="anim/en/05_segmentation.svg" alt="segmentation"/>
+<img lang-es src="anim/es/05_segmentation.svg" alt="segmentación"/></div>
+
+<h2 id="s6" lang-en>6. Features: every parcel becomes a row</h2>
+<h2 id="s6" lang-es>6. Variables: cada parcela se vuelve una fila</h2>
+<p lang-en>For each segment we compute summary statistics (mean, standard deviation,
+min, max…) of every band — <b>zonal statistics</b>. The image becomes a table: one row
+per parcel, one column per statistic. In production, with 8 months of optical and radar
+mosaics, that's 800+ columns describing each parcel's <i>phenological history</i> — how
+it greened up, peaked and dried through the season. That temporal fingerprint is what
+tells wheat apart from corn.</p>
+<p lang-es>Para cada segmento calculamos estadísticas de resumen (media, desviación
+estándar, mín, máx…) de cada banda — <b>estadísticas zonales</b>. La imagen se vuelve
+una tabla: una fila por parcela, una columna por estadística. En producción, con 8
+meses de mosaicos ópticos y de radar, son más de 800 columnas que describen la
+<i>historia fenológica</i> de cada parcela — cómo verdeció, llegó a su pico y se secó a
+lo largo del ciclo. Esa huella temporal es lo que distingue al trigo del maíz.</p>
+<div class="anim"><img lang-en src="anim/en/06_features.svg" alt="features"/>
+<img lang-es src="anim/es/06_features.svg" alt="variables"/></div>
+
+<h2 id="s7" lang-en>7. Field labels and the purity filter</h2>
+<h2 id="s7" lang-es>7. Etiquetas de campo y el filtro de pureza</h2>
+<p lang-en>Ground truth comes as GPS points: someone stood in a field and wrote down
+"wheat". Points are joined to the segments they fall in, and a <b>purity filter</b>
+keeps only segments where all points agree on one class — mixed segments would teach
+the model contradictions. You don't need to draw field boundaries: you mark <i>where</i>
+you know the crop, and the segmentation does the spatial expansion for you.</p>
+<p lang-es>La verdad de campo llega como puntos GPS: alguien se paró en una parcela y
+anotó "trigo". Los puntos se cruzan con los segmentos donde caen, y un <b>filtro de
+pureza</b> conserva solo los segmentos donde todos los puntos coinciden en una clase —
+los segmentos mixtos enseñarían contradicciones al modelo. No necesitas dibujar los
+límites de las parcelas: marcas <i>dónde</i> conoces el cultivo y la segmentación hace
+la expansión espacial por ti.</p>
+<div class="anim"><img lang-en src="anim/en/07_labels_purity.svg" alt="labels"/>
+<img lang-es src="anim/es/07_labels_purity.svg" alt="etiquetas"/></div>
+
+<h2 id="s8" lang-en>8. Training the classifier</h2>
+<h2 id="s8" lang-es>8. Entrenamiento del clasificador</h2>
+<p lang-en>With a feature table and labels, this is classic supervised learning. The
+workshop trains a <b>Random Forest</b> — hundreds of decision trees voting — in seconds
+inside your browser. The production pipeline goes further with <b>TPOT</b>, an AutoML
+system that breeds and evaluates whole scikit-learn pipelines to find the best one for
+your data. Accuracy is always reported on parcels the model never saw.</p>
+<p lang-es>Con la tabla de variables y las etiquetas, esto es aprendizaje supervisado
+clásico. El taller entrena un <b>Random Forest</b> — cientos de árboles de decisión
+votando — en segundos dentro de tu navegador. El pipeline de producción va más lejos
+con <b>TPOT</b>, un sistema AutoML que cruza y evalúa pipelines completos de
+scikit-learn hasta encontrar el mejor para tus datos. La exactitud siempre se reporta
+sobre parcelas que el modelo nunca vio.</p>
+<div class="anim"><img lang-en src="anim/en/08_training.svg" alt="training"/>
+<img lang-es src="anim/es/08_training.svg" alt="entrenamiento"/></div>
+
+<h2 id="s9" lang-en>9. The crop map</h2>
+<h2 id="s9" lang-es>9. El mapa de cultivos</h2>
+<p lang-en>The trained model classifies <i>every</i> parcel — labeled or not — and the
+prediction is painted back onto the segmentation. The result is a decision-ready
+product: a vector map (GeoPackage in production) you can open in QGIS, aggregate into
+statistics, or compare across years.</p>
+<p lang-es>El modelo entrenado clasifica <i>todas</i> las parcelas — etiquetadas o no —
+y la predicción se pinta de vuelta sobre la segmentación. El resultado es un producto
+listo para decisiones: un mapa vectorial (GeoPackage en producción) que puedes abrir en
+QGIS, agregar en estadísticas o comparar entre años.</p>
+<div class="anim"><img lang-en src="anim/en/09_crop_map.svg" alt="crop map"/>
+<img lang-es src="anim/es/09_crop_map.svg" alt="mapa de cultivos"/></div>
+
+<h2 id="s10" lang-en>10. From workshop to production</h2>
+<h2 id="s10" lang-es>10. Del taller a producción</h2>
+<p lang-en>Everything you practiced scales up in
+<a href="https://github.com/abxda/geocrop_analysis_mx">geocrop_analysis_mx</a>: live
+download from the open catalogs (months of imagery, Sentinel-1 radar included), monthly
+geomedians with progress reporting, the same Shepherd segmentation, full zonal
+statistics, AutoML training and a GeoPackage crop map — plus your own rasters (DEM,
+climate, land use) as extra features, and the optional GEE backend. Plain
+<code>pip install</code> on Windows, Linux or macOS; no conda, no compilers, no
+mandatory accounts.</p>
+<p lang-es>Todo lo que practicaste escala en
+<a href="https://github.com/abxda/geocrop_analysis_mx">geocrop_analysis_mx</a>:
+descarga en vivo desde los catálogos abiertos (meses de imágenes, radar Sentinel-1
+incluido), geomedianas mensuales con reporte de progreso, la misma segmentación
+Shepherd, estadísticas zonales completas, entrenamiento AutoML y un mapa de cultivos en
+GeoPackage — más tus propios rasters (MDE, clima, uso de suelo) como variables extra, y
+el backend GEE opcional. Un simple <code>pip install</code> en Windows, Linux o macOS;
+sin conda, sin compiladores, sin cuentas obligatorias.</p>
+<div class="anim"><img lang-en src="anim/en/10_full_pipeline.svg" alt="pipeline"/>
+<img lang-es src="anim/es/10_full_pipeline.svg" alt="pipeline"/></div>
+
+<p style="margin-top:34px">
+<a href="./lab/index.html?path=Crop_Classification_Workshop.ipynb" lang-en><b>→ Ready? Launch the hands-on lab</b></a>
+<a href="./lab/index.html?path=Taller_Clasificacion_Cultivos.ipynb" lang-es><b>→ ¿Listo? Abre el laboratorio práctico</b></a>
+</p>
+
+<footer>
+  <span lang-en>Dr. Abel Coronado (<a href="https://github.com/abxda">@abxda</a>) · built with Claude Fable (Anthropic) · MIT</span>
+  <span lang-es>Dr. Abel Coronado (<a href="https://github.com/abxda">@abxda</a>) · construido con Claude Fable (Anthropic) · MIT</span>
+</footer>
+
+</div>
+<script>
+function setLang(l){
+  document.documentElement.setAttribute("data-lang", l);
+  document.documentElement.lang = l;
+  try{ localStorage.setItem("geocrop-lang", l); }catch(e){}
+  document.getElementById("btn-en").classList.toggle("on", l === "en");
+  document.getElementById("btn-es").classList.toggle("on", l === "es");
+}
+(function(){
+  var saved = null;
+  try{ saved = localStorage.getItem("geocrop-lang"); }catch(e){}
+  setLang(saved === "es" ? "es" : "en");
+})();
+</script>
+</body>
+</html>

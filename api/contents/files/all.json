@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.964041Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:50.735764Z",
+      "mimetype": "application/json",
+      "name": "class_names.json",
+      "path": "files/class_names.json",
+      "size": 110,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.965041Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:50.734765Z",
+      "mimetype": "image/tiff",
+      "name": "crop_labels_384.tif",
+      "path": "files/crop_labels_384.tif",
+      "size": 15818,
+      "type": "file",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-07-06T03:26:55.967043Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-07-06T03:26:50.733764Z",
+      "mimetype": "image/tiff",
+      "name": "crop_tile_384.tif",
+      "path": "files/crop_tile_384.tif",
+      "size": 2553569,
+      "type": "file",
+      "writable": true
+    }
+  ],
+  "created": "2026-07-06T03:26:55.963042Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-07-06T03:26:55.967043Z",
+  "mimetype": null,
+  "name": "files",
+  "path": "files",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
